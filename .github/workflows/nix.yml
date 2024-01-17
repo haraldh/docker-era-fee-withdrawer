@@ -48,8 +48,10 @@ jobs:
     - name: Build base images
       run: |
         nix build -L .#docker-era-fee-withdrawer-dcap
+        sha256sum result
         docker load < result
         nix build -L .#docker-era-fee-withdrawer-azure
+        sha256sum result
         docker load < result
 
     - name: Log in to Docker Hub
