@@ -2,7 +2,7 @@ FROM era-fee-withdrawer-azure:latest
 
 WORKDIR /app
 
-COPY enclave-key.pem era-fee-withdrawer.manifest.toml .
+COPY enclave-key.pem era-fee-withdrawer.manifest.toml ./
 
 # The final touch for a reproducible docker file
 RUN touch -r /nix/store * .?*

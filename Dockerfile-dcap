@@ -5,7 +5,7 @@ WORKDIR /app
 COPY sgx_default_qcnl.conf .
 RUN rm /etc/sgx_default_qcnl.conf && ln -s /app/sgx_default_qcnl.conf /etc/sgx_default_qcnl.conf
 
-COPY enclave-key.pem era-fee-withdrawer.manifest.toml .
+COPY enclave-key.pem era-fee-withdrawer.manifest.toml ./
 
 # The final touch for a reproducible docker file
 RUN touch -r /nix/store * .?*
