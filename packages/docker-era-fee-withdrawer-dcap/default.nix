@@ -23,11 +23,10 @@ pkgs.dockerTools.buildLayeredImage {
     ];
     pathsToLink = [ "/bin" "/lib" "/etc" ];
     postBuild = ''
-      	mkdir -p $out/var
-      	ln -s /run $out/var/run
-        mkdir -p $out/${nixsgx.sgx-psw.out}/aesm/
-        ln -s ${curl.out}/lib/libcurl.so $out/${nixsgx.sgx-psw.out}/aesm/
-        # ln -s ${nixsgx.libsgx-dcap-default-qpl.out}/lib/libdcap_quoteprov.so $out/${nixsgx.sgx-psw.out}/aesm/
+      mkdir -p $out/var/run
+      mkdir -p $out/${nixsgx.sgx-psw.out}/aesm/
+      ln -s ${curl.out}/lib/libcurl.so $out/${nixsgx.sgx-psw.out}/aesm/
+      # ln -s ${nixsgx.libsgx-dcap-default-qpl.out}/lib/libdcap_quoteprov.so $out/${nixsgx.sgx-psw.out}/aesm/
     '';
   };
 }
