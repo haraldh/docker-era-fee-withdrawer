@@ -128,11 +128,11 @@
         "snowfall-lib": "snowfall-lib"
       },
       "locked": {
-        "lastModified": 1705580878,
-        "narHash": "sha256-uCQPZxAKnSXNZo6VSUnK4QafR+AvQy75iJxWzd2fsC0=",
+        "lastModified": 1705582517,
+        "narHash": "sha256-f4HpcMCiB5GVnQZzEoMUhrky7tfmI3Zyl1WdkfCySc0=",
         "owner": "haraldh",
         "repo": "nixsgx",
-        "rev": "62eb106c2c04a242cefaa4a8c38fb269aee09321",
+        "rev": "af185c2939c4f1e4a9f11034fcda722239293210",
         "type": "github"
       },
       "original": {
