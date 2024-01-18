@@ -20,7 +20,7 @@ Should output something like:
 ```bash
 [...]
 #9 6.689 Measurement:
-#9 6.689     b2f0bbac27a644c97dc212dd9d20ba52e09f29d32e5863ca4164a03e6462f83c
+#9 6.689     629aade720205420117d96d436141f98b1b5ec0363f0d85dd133a80dfac7169d
 [...]
 ```
 as the github actions build does.
