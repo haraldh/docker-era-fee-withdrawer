@@ -17,8 +17,8 @@ pkgs.dockerTools.buildLayeredImage {
       sgx-psw
       gramine
       restart-aesmd
-      libsgx-dcap-default-qpl
-      libsgx-dcap-quote-verify
+      sgx-dcap.default_qpl
+      sgx-dcap.quote_verify
       era-fee-withdrawer
     ];
     pathsToLink = [ "/bin" "/lib" "/etc" ];
@@ -26,7 +26,7 @@ pkgs.dockerTools.buildLayeredImage {
       mkdir -p $out/var/run
       mkdir -p $out/${nixsgx.sgx-psw.out}/aesm/
       ln -s ${curl.out}/lib/libcurl.so $out/${nixsgx.sgx-psw.out}/aesm/
-      # ln -s ${nixsgx.libsgx-dcap-default-qpl.out}/lib/libdcap_quoteprov.so $out/${nixsgx.sgx-psw.out}/aesm/
+      # ln -s ${nixsgx.sgx-dcap.default_qpl}/lib/libdcap_quoteprov.so $out/${nixsgx.sgx-psw.out}/aesm/
     '';
   };
 }
