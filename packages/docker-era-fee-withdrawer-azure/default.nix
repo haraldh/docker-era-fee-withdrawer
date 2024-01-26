@@ -17,7 +17,7 @@ pkgs.dockerTools.buildLayeredImage {
       gramine
       restart-aesmd
       azure-dcap-client
-      libsgx-dcap-quote-verify
+      sgx-dcap.quote_verify
       era-fee-withdrawer
     ];
     pathsToLink = [ "/bin" "/lib" "/etc" ];
