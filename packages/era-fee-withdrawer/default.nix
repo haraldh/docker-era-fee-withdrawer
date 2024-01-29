@@ -1,5 +1,5 @@
 { lib
-, nodejs
+, nodejs-slim
 , fetchFromGitHub
 , mkYarnPackage
 , fetchYarnDeps
@@ -28,13 +28,13 @@ mkYarnPackage {
   };
 
   nativeBuildInputs = [
-    nodejs
+    nodejs-slim
     makeWrapper
   ];
 
   postInstall = ''
     rm -fr $out/libexec/fee-withdrawer-v2/deps/fee-withdrawer-v2/.github
-    makeWrapper '${nodejs}/bin/node' "$out/bin/${pname}" \
+    makeWrapper '${nodejs-slim}/bin/node' "$out/bin/${pname}" \
       --add-flags "$out/libexec/fee-withdrawer-v2/node_modules/ts-node/dist/bin.js" \
       --add-flags "$out/libexec/fee-withdrawer-v2/deps/fee-withdrawer-v2/src/index.ts" \
   '';
