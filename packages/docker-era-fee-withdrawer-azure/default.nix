@@ -3,22 +3,28 @@
 , curl
 , nixsgx
 , efw
+, cacert
 , ...
 }:
 pkgs.dockerTools.buildLayeredImage {
   name = "era-fee-withdrawer-azure";
   tag = "latest";
 
+  config.Env = [ "SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt" ];
+  config.Entrypoint = [ "/bin/sh" ];
+
   contents = pkgs.buildEnv {
     name = "image-root";
     paths = with nixsgx; with efw; [
+      azure-dcap-client
       busybox
-      sgx-psw
+      cacert
+      curl
+      era-fee-withdrawer
       gramine
       restart-aesmd
-      azure-dcap-client
       sgx-dcap.quote_verify
-      era-fee-withdrawer
+      sgx-psw
     ];
     pathsToLink = [ "/bin" "/lib" "/etc" ];
     postBuild = ''
