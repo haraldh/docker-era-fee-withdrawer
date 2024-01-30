@@ -61,9 +61,14 @@ trusted_files = [
   "file:/etc/ssl/certs/ca-bundle.crt",
 ]
 
+allowed_files = [
+  "file:/etc/hosts",
+  "file:/etc/resolv.conf",
+]
+
 [sys]
 stack.size = "1M"
-enable_extra_runtime_domain_names_conf = true
+# enable_extra_runtime_domain_names_conf = true
 enable_sigterm_injection = true
 
 experimental__enable_flock = true
