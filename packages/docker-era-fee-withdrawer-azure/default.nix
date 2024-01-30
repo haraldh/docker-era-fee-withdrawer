@@ -10,7 +10,10 @@ pkgs.dockerTools.buildLayeredImage {
   name = "era-fee-withdrawer-azure";
   tag = "latest";
 
-  config.Env = [ "SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt" ];
+  config.Env = [
+    "SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt"
+    "UV_USE_IO_URING=0"
+  ];
   config.Entrypoint = [ "/bin/sh" ];
 
   contents = pkgs.buildEnv {

@@ -18,6 +18,9 @@ RUN set -eux; export HOME=/app; \
 RUN touch -r /nix/store era-fee-withdrawer.sig
 
 ENTRYPOINT ["/bin/sh", "-c"]
+ENV SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
+ENV UV_USE_IO_URING=0
+
 CMD [ "echo tee-era-fee-withdrawer in direct mode starting ; exec era-fee-withdrawer" ]
 #CMD [ "echo tee-era-fee-withdrawer in simulation mode starting ; exec gramine-direct era-fee-withdrawer" ]
 #CMD [ "echo tee-era-fee-withdrawer in SGX mode starting ; restart-aesmd ; exec gramine-sgx era-fee-withdrawer" ]
