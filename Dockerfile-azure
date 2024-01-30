@@ -8,7 +8,7 @@ COPY enclave-key.pem era-fee-withdrawer.manifest.toml ./
 RUN touch -r /nix/store * .?*
 
 RUN set -eux; export HOME=/app; \
-    gramine-manifest -Darch_libdir=/lib -Dexecdir=/bin -Dlog_level=trace era-fee-withdrawer.manifest.toml era-fee-withdrawer.manifest; \
+    gramine-manifest -Darch_libdir=/lib -Dexecdir=/bin -Dlog_level=error era-fee-withdrawer.manifest.toml era-fee-withdrawer.manifest; \
     gramine-sgx-sign --manifest era-fee-withdrawer.manifest --output era-fee-withdrawer.manifest.sgx --key enclave-key.pem; \
     rm enclave-key.pem
 
@@ -21,5 +21,5 @@ ENTRYPOINT ["/bin/sh", "-c"]
 ENV SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
 ENV UV_USE_IO_URING=0
 
-CMD [ "echo tee-era-fee-withdrawer in simulation mode starting ; set; exec gramine-direct era-fee-withdrawer" ]
-#CMD [ "echo tee-era-fee-withdrawer in SGX mode starting ; restart-aesmd ; exec gramine-sgx era-fee-withdrawer" ]
+# CMD [ "echo tee-era-fee-withdrawer in simulation mode starting ; exec gramine-direct era-fee-withdrawer" ]
+CMD [ "echo tee-era-fee-withdrawer in SGX mode starting ; restart-aesmd ; exec gramine-sgx era-fee-withdrawer" ]
