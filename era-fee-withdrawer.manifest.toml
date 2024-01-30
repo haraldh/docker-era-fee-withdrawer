@@ -8,6 +8,7 @@ log_level = "{{ log_level }}"
 [loader.env]
 LD_LIBRARY_PATH = "/lib"
 SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"
+UV_USE_IO_URING = "0"
 MISC_FEE_ACCOUNT_PRIVATE_KEY.passthrough = true
 OPERATOR_ADDRESS.passthrough = true
 WITHDRAWAL_FINALIZER_ETH_ADDRESS.passthrough = true
