@@ -35,7 +35,7 @@ root.uri = "file:/"
 start_dir = "/app"
 mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
-  { path = "file:{{ gramine.runtimedir() }}/libdcap_quoteprov.so", uri = "file:/lib/libdcap_quoteprov.so" },
+  { path = "{{ gramine.runtimedir() }}/libdcap_quoteprov.so", uri = "file:/lib/libdcap_quoteprov.so" },
   { type = "tmpfs", path = "/var/tmp" },
   { type = "tmpfs", path = "/tmp" },
   { type = "tmpfs", path = "/app/.dcap-qcnl" },
