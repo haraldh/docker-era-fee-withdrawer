@@ -1,5 +1,5 @@
 { lib
-, nodejs_18
+, nixsgx
 , fetchFromGitHub
 , mkYarnPackage
 , fetchYarnDeps
@@ -28,13 +28,13 @@ mkYarnPackage {
   };
 
   nativeBuildInputs = [
-    nodejs_18
+    nixsgx.nodejs
     makeWrapper
   ];
 
   postInstall = ''
     rm -fr $out/libexec/fee-withdrawer-v2/deps/fee-withdrawer-v2/.github
-    makeWrapper '${nodejs_18}/bin/node' "$out/bin/${pname}" \
+    makeWrapper '${nixsgx.nodejs}/bin/node' "$out/bin/${pname}" \
       --add-flags "$out/libexec/fee-withdrawer-v2/node_modules/ts-node/dist/bin.js" \
       --add-flags "$out/libexec/fee-withdrawer-v2/deps/fee-withdrawer-v2/src/index.ts" \
   '';

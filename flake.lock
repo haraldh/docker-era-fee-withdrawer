@@ -106,11 +106,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1706098335,
-        "narHash": "sha256-r3dWjT8P9/Ah5m5ul4WqIWD8muj5F+/gbCdjiNVBKmU=",
+        "lastModified": 1706515015,
+        "narHash": "sha256-eFfY5A7wlYy3jD/75lx6IJRueg4noE+jowl0a8lIlVo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a77ab169a83a4175169d78684ddd2e54486ac651",
+        "rev": "f4a8d6d5324c327dcc2d863eb7f3cc06ad630df4",
         "type": "github"
       },
       "original": {
@@ -128,11 +128,11 @@
         "snowfall-lib": "snowfall-lib"
       },
       "locked": {
-        "lastModified": 1706267569,
-        "narHash": "sha256-h8nDD3LJVz4+iZKIctp2yR0S+V+7Hb9WALBZdCG1V7Q=",
+        "lastModified": 1706650888,
+        "narHash": "sha256-DAUAkNvHGC/w1sO7KpDMYTBCXKeI/pep0uY8bE9EHCU=",
         "owner": "haraldh",
         "repo": "nixsgx",
-        "rev": "8b7c7297c82bb867e2fdf007d0e215d00682ca6f",
+        "rev": "b086eab2aba759be2ef87c91781174f7f021aead",
         "type": "github"
       },
       "original": {
