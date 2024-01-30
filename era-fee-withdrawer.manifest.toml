@@ -56,6 +56,7 @@ trusted_files = [
   "file:/lib/",
   "file:/nix/",
   "file:/app/",
+  "file:/etc/",
   "file:/etc/ssl/",
   "file:/etc/ssl/certs/ca-bundle.crt",
 ]
