@@ -57,12 +57,10 @@ trusted_files = [
   "file:/nix/",
   "file:/app/",
   "file:/etc/ssl/certs/ca-bundle.crt",
+  "file:/etc/gai.conf",
 ]
 
 [sys]
 stack.size = "1M"
 enable_extra_runtime_domain_names_conf = true
 enable_sigterm_injection = true
-
-experimental__enable_flock = true
-insecure__allow_eventfd = true
