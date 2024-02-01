@@ -7,8 +7,10 @@ RUN rm /etc/sgx_default_qcnl.conf && ln -s /app/sgx_default_qcnl.conf /etc/sgx_d
 
 COPY enclave-key.pem era-fee-withdrawer.manifest.toml ./
 
+RUN printf "precedence ::ffff:0:0/96  100\n" > /etc/gai.conf
+
 # The final touch for a reproducible docker file
-RUN touch -r /nix/store * .?*
+RUN touch -r /nix/store * .?* /etc/gai.conf
 
 RUN set -eux; export HOME=/app; \
     gramine-manifest -Darch_libdir=/lib -Dexecdir=/bin -Dlog_level=error era-fee-withdrawer.manifest.toml era-fee-withdrawer.manifest; \
@@ -21,5 +23,8 @@ RUN set -eux; export HOME=/app; \
 RUN touch -r /nix/store era-fee-withdrawer.sig
 
 ENTRYPOINT ["/bin/sh", "-c"]
+ENV SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
+ENV UV_USE_IO_URING=0
+
 #CMD [ "echo era-fee-withdrawer in simulation mode starting ; exec gramine-direct era-fee-withdrawer" ]
 CMD [ "echo era-fee-withdrawer in SGX mode starting ; restart-aesmd ; exec gramine-sgx era-fee-withdrawer" ]
