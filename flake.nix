@@ -8,7 +8,7 @@
     };
 
     nixsgx-flake = {
-      url = "github:haraldh/nixsgx";
+      url = "github:matter-labs/nixsgx";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
