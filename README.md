@@ -5,11 +5,12 @@ with the gramine runtime to be run on SGX in Azure.
 
 ## Reproduce the NixOS build
 ```bash
-$ docker run -it -v .:/mnt nixos/nix:2.17.0
+$ docker run --privileged -it -v .:/mnt nixos/nix:2.19.2
 ```
 Inside the container:
 ```bash
 $ echo 'experimental-features = nix-command flakes' >> /etc/nix/nix.conf
+$ echo 'sandbox = true' >> /etc/nix/nix.conf
 $ cd /mnt
 $ nix build
 $ cp result era-fee-withdrawer-azure.tar.gz
@@ -26,7 +27,7 @@ Should output something like:
 [...]
 
 #9 6.572 Measurement:
-#9 6.572     5ab35973a1dd39b049bc11dabf0a699f2d21695417c547e3da88e1ec39b0207b
+#9 6.572     6ea6a97a1672e240050fe687425d96d45adf09a84fcd099976d51df11fb98fcf
 [...]
 ```
 as the github actions build does.
